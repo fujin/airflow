@@ -405,6 +405,9 @@ kerberos:
 
 # Airflow Worker Config
 workers:
+  # Labels for the worker pods (Only).
+  labels: {}
+
   # Number of airflow celery workers in StatefulSet
   replicas: 1
 

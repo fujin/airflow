@@ -1104,6 +1104,10 @@
             "x-docsSection": "Workers",
             "additionalProperties": false,
             "properties": {
+                "labels": {
+                    "description": "Labels for the worker pods.",
+                    "type": "object"
+                },
                 "replicas": {
                     "description": "Number of Airflow Celery workers in StatefulSet.",
                     "type": "integer",

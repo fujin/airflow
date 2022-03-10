@@ -61,9 +61,9 @@ spec:
         tier: airflow
         component: worker
         release: {{ .Release.Name }}
-{{- with .Values.labels }}
-{{ toYaml . | indent 8 }}
-{{- end }}
+{{ with merge .Values.workers.labels .Values.labels }}
+{{- toYaml . | indent 8 -}}
+{{ end }}
       annotations:
         checksum/metadata-secret: {{ include (print $.Template.BasePath "/secrets/metadata-connection-secret.yaml") . | sha256sum }}
         checksum/result-backend-secret: {{ include (print $.Template.BasePath "/secrets/result-backend-connection-secret.yaml") . | sha256sum }}
